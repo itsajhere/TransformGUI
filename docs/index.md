@@ -5,7 +5,8 @@ Insert [this](https://github.com/itsajhere/transformgui/releases) model into Rep
 Create a ScreenGui inside StarterGui with a Frame inside. Create a LocalScript and add the following code.
 ```lua
 local TransformGui = require(game.ReplicatedStorage.TransformGui)
-TransformGui.makeDraggable(script.Parent.Frame)
+local tGui = TransformGui.new(script.Parent.Frame, false)
+tGui:makeDraggable()
 ```
 The code should make the GUI draggable with your mouse.
 If this works then you're all set to go.
