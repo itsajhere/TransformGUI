@@ -1,7 +1,7 @@
 local uis = game:GetService("UserInputService")
-local DraggableGui = {}
+local TransformableGui = {}
 
-function DraggableGui.makeDraggable(guiObject)
+function TransformableGui.makeDraggable(guiObject)
 	local moving = false
 	local delta = nil
 	guiObject.InputBegan:Connect(function(input)
@@ -26,4 +26,4 @@ function DraggableGui.makeDraggable(guiObject)
 	end)
 end
 
-return DraggableGui
+return TransformableGui
