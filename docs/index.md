@@ -10,5 +10,3 @@ tGui:makeDraggable()
 ```
 The code should make the GUI draggable with your mouse.
 If this works then you're all set to go.
-
-**TransformGui is in early beta and will get more features very soon.**
