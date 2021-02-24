@@ -327,7 +327,8 @@
 <h3 id="basic-usage">Basic Usage</h3>
 <p>Create a ScreenGui inside StarterGui with a Frame inside. Create a LocalScript and add the following code.</p>
 <pre><code class="language-lua">local TransformGui = require(game.ReplicatedStorage.TransformGui)
-TransformGui.makeDraggable(script.Parent.Frame)
+local tGui = TransformGui.new(script.Parent.Frame, false)
+tGui:makeDraggable()
 </code></pre>
 <p>The code should make the GUI draggable with your mouse.
 If this works then you're all set to go.</p>
