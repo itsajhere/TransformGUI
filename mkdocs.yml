@@ -1,0 +1,13 @@
+site_name: TransformGUI
+theme:
+  name: material
+  palette:
+    scheme: preference
+  highlightjs: true
+  hljs_languages:
+    - lua
+
+nav:
+  - Home: index.md
+  - Classes:
+    - TransformGUI: classes/transformgui.md
