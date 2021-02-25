@@ -49,7 +49,6 @@ TransformGui.onDragBegin:Connect(function()
 end)
 ```
 
-## Events
 ### onDragEnded
 **Description:**
 
@@ -70,7 +69,6 @@ TransformGui.onResizeBegin:Connect(function()
 end)
 ```
 
-## Events
 ### onResizeEnded
 **Description:**
 
