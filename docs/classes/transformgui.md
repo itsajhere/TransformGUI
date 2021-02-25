@@ -24,7 +24,7 @@ TransformGui.new(script.Parent.Frame, false)
 > Enables the TransformGui object to be moved with the mouse.
 
 ```lua
-TransformGui.makeDraggable()
+TransformGui:makeDraggable()
 ```
 
 
@@ -35,7 +35,7 @@ TransformGui.makeDraggable()
 > Enables the TransformGui object to be resized from the edges.
 
 ```lua
-TransformGui.makeDraggable()
+TransformGui:makeResizeable()
 ```
 
 ## Events
