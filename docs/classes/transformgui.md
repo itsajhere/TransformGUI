@@ -1,4 +1,5 @@
 # TransformGui
+## Methods
 ### new
 **Description:**
 
@@ -23,7 +24,7 @@ TransformGui.new(script.Parent.Frame, false)
 > Enables the TransformGui object to be moved with the mouse.
 
 ```lua
-tGui.makeDraggable()
+TransformGui.makeDraggable()
 ```
 
 
@@ -34,5 +35,48 @@ tGui.makeDraggable()
 > Enables the TransformGui object to be resized from the edges.
 
 ```lua
-tGui.makeDraggable()
+TransformGui.makeDraggable()
+```
+
+## Events
+### onDragBegin
+**Description:**
+
+> Fires when the user starts dragging the guiObject.
+
+```lua
+TransformGui.onDragBegin:Connect(function()
+end)
+```
+
+## Events
+### onDragEnded
+**Description:**
+
+> Fires when the user finishes dragging the guiObject.
+
+```lua
+TransformGui.onDragEnded:Connect(function()
+end)
+```
+
+### onResizeBegin
+**Description:**
+
+> Fires when the user starts resizing the guiObject.
+
+```lua
+TransformGui.onResizeBegin:Connect(function()
+end)
+```
+
+## Events
+### onResizeEnded
+**Description:**
+
+> Fires when the user finishes resizing the guiObject.
+
+```lua
+TransformGui.onResizeEnded:Connect(function()
+end)
 ```

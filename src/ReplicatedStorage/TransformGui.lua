@@ -7,6 +7,17 @@ function TransformGui.new(guiObject: GuiObject, ignoreGuiInsetEnabled: boolean)
 	self.guiObject = guiObject
 	self.ignoreGuiInsetEnabled = ignoreGuiInsetEnabled
 	self.resizing = false
+	self.dragging = false
+
+	-- Events
+	self._onResizeBeginEvent = Instance.new("BindableEvent")
+	self._onResizeEndedEvent = Instance.new("BindableEvent")
+	self._onDragBeginEvent = Instance.new("BindableEvent")
+	self._onDragEndedEvent = Instance.new("BindableEvent")
+	self.onResizeBegin = self._onResizeBeginEvent.Event
+	self.onResizeEnded = self._onResizeEndedEvent.Event
+	self.onDragBegin = self._onDragBeginEvent.Event
+	self.onDragEnded = self._onDragEndedEvent.Event
 	return self
 end
 
@@ -19,6 +30,8 @@ function TransformGui:makeDraggable()
 			moving = true
 			local mLocation = uis:GetMouseLocation()
 			delta = self.guiObject.Position - UDim2.new(0, mLocation.X, 0, mLocation.Y)
+			self.dragging = true
+			self._onDragBeginEvent:Fire()
 		end
 	end)
 	uis.InputChanged:Connect(function(input, r)
@@ -29,9 +42,11 @@ function TransformGui:makeDraggable()
 		end
 	end)
 	self.guiObject.InputEnded:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and self.dragging then
 			moving = false
 			delta = nil
+			self.dragging = false
+			self._onDragEndedEvent:Fire()
 		end
 	end)
 end
@@ -70,6 +85,9 @@ function TransformGui:makeResizeable()
 				oldMousePos = mLocation
 				yT = true
 			end
+			if yB or yT or xR or xL then
+				self._onResizeBeginEvent:Fire()
+			end
 		end
 	end)
 	uis.InputChanged:Connect(function(input, r)
@@ -101,13 +119,14 @@ function TransformGui:makeResizeable()
 		end
 	end)
 	self.guiObject.InputEnded:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and self.resizing then
 			moving = false
 			xL = false
 			xR = false
 			yT = false
 			yB = false
 			self.resizing = false
+			self._onResizeEndedEvent:Fire()
 		end
 	end)
 end

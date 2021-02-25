@@ -21,6 +21,12 @@ do
 	Instance.new("UICorner", t)
 	local tGui = TransformGui.new(t, false)
 	tGui:makeDraggable()
+	tGui.onDragBegin:Connect(function()
+		print("Drag Begin")
+	end)
+	tGui.onDragEnded:Connect(function()
+		print("Drag End")
+	end)
 end
 do
 	local t = Instance.new("TextLabel", sGui)
@@ -42,6 +48,12 @@ do
 
 	local tGui = TransformGui.new(t, false)
 	tGui:makeResizeable()
+	tGui.onResizeBegin:Connect(function()
+		print("Resize Begin")
+	end)
+	tGui.onResizeEnded:Connect(function()
+		print("Resize End")
+	end)
 end
 do
 	local t = Instance.new("TextLabel", sGui)
@@ -64,4 +76,16 @@ do
 	local tGui = TransformGui.new(t, false)
 	tGui:makeDraggable()
 	tGui:makeResizeable()
+	tGui.onDragBegin:Connect(function()
+		print("Drag Begin")
+	end)
+	tGui.onDragEnded:Connect(function()
+		print("Drag End")
+	end)
+	tGui.onResizeBegin:Connect(function()
+		print("Resize Begin")
+	end)
+	tGui.onResizeEnded:Connect(function()
+		print("Resize End")
+	end)
 end
