@@ -294,6 +294,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ondragchanged" class="md-nav__link">
+    onDragChanged
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ondragended" class="md-nav__link">
     onDragEnded
   </a>
@@ -303,6 +310,13 @@
           <li class="md-nav__item">
   <a href="#onresizebegin" class="md-nav__link">
     onResizeBegin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onresizechanged" class="md-nav__link">
+    onResizeChanged
   </a>
   
 </li>
@@ -407,6 +421,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ondragchanged" class="md-nav__link">
+    onDragChanged
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ondragended" class="md-nav__link">
     onDragEnded
   </a>
@@ -416,6 +437,13 @@
           <li class="md-nav__item">
   <a href="#onresizebegin" class="md-nav__link">
     onResizeBegin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onresizechanged" class="md-nav__link">
+    onResizeChanged
   </a>
   
 </li>
@@ -483,6 +511,14 @@ TransformGui.new(script.Parent.Frame, false)
 <pre><code class="language-lua">TransformGui.onDragBegin:Connect(function()
 end)
 </code></pre>
+<h3 id="ondragchanged">onDragChanged</h3>
+<p><strong>Description:</strong></p>
+<blockquote>
+<p>Fires when the user drags the guiObject after it has started being dragged.</p>
+</blockquote>
+<pre><code class="language-lua">TransformGui.onDragChanged:Connect(function()
+end)
+</code></pre>
 <h3 id="ondragended">onDragEnded</h3>
 <p><strong>Description:</strong></p>
 <blockquote>
@@ -497,6 +533,14 @@ end)
 <p>Fires when the user starts resizing the guiObject.</p>
 </blockquote>
 <pre><code class="language-lua">TransformGui.onResizeBegin:Connect(function()
+end)
+</code></pre>
+<h3 id="onresizechanged">onResizeChanged</h3>
+<p><strong>Description:</strong></p>
+<blockquote>
+<p>Fires when the user resizes the guiObject after it has started being resized.</p>
+</blockquote>
+<pre><code class="language-lua">TransformGui.onDragChanged:Connect(function()
 end)
 </code></pre>
 <h3 id="onresizeended">onResizeEnded</h3>
