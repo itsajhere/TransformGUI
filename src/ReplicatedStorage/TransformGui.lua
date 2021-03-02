@@ -11,12 +11,16 @@ function TransformGui.new(guiObject: GuiObject, ignoreGuiInsetEnabled: boolean)
 
 	-- Events
 	self._onResizeBeginEvent = Instance.new("BindableEvent")
+	self._onResizeChangedEvent = Instance.new("BindableEvent")
 	self._onResizeEndedEvent = Instance.new("BindableEvent")
 	self._onDragBeginEvent = Instance.new("BindableEvent")
+	self._onDragChangedEvent = Instance.new("BindableEvent")
 	self._onDragEndedEvent = Instance.new("BindableEvent")
 	self.onResizeBegin = self._onResizeBeginEvent.Event
+	self.onResizeChanged = self._onResizeChangedEvent.Event
 	self.onResizeEnded = self._onResizeEndedEvent.Event
 	self.onDragBegin = self._onDragBeginEvent.Event
+	self.onDragChanged = self._onDragChangedEvent.Event
 	self.onDragEnded = self._onDragEndedEvent.Event
 	return self
 end
@@ -36,9 +40,10 @@ function TransformGui:makeDraggable()
 	end)
 	uis.InputChanged:Connect(function(input, r)
 		if r then return end
-		if moving and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch )then
+		if moving and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
 			local mLocation = uis:GetMouseLocation()
 			self.guiObject.Position = UDim2.new(0, mLocation.X, 0, mLocation.Y) + delta
+			self._onDragChangedEvent:Fire()
 		end
 	end)
 	self.guiObject.InputEnded:Connect(function(input)
@@ -116,6 +121,7 @@ function TransformGui:makeResizeable()
 				self.guiObject.Size += UDim2.new(0, 0, 0, delta.Y)
 				oldMousePos = mLocation
 			end
+			self._onResizeChangedEvent:Fire()
 		end
 	end)
 	self.guiObject.InputEnded:Connect(function(input)
