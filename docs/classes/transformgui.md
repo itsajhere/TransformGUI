@@ -49,6 +49,16 @@ TransformGui.onDragBegin:Connect(function()
 end)
 ```
 
+### onDragChanged
+**Description:**
+
+> Fires when the user drags the guiObject after it has started being dragged.
+
+```lua
+TransformGui.onDragChanged:Connect(function()
+end)
+```
+
 ### onDragEnded
 **Description:**
 
@@ -66,6 +76,16 @@ end)
 
 ```lua
 TransformGui.onResizeBegin:Connect(function()
+end)
+```
+
+### onResizeChanged
+**Description:**
+
+> Fires when the user resizes the guiObject after it has started being resized.
+
+```lua
+TransformGui.onDragChanged:Connect(function()
 end)
 ```
 
