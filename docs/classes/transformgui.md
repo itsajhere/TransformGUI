@@ -85,7 +85,7 @@ end)
 > Fires when the user resizes the guiObject after it has started being resized.
 
 ```lua
-TransformGui.onDragChanged:Connect(function()
+TransformGui.onResizeChanged:Connect(function()
 end)
 ```
 
