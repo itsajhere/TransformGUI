@@ -4,4 +4,4 @@
 ## Contributing
 We would greatly welcome contributions to the project, just create a pull request and create the changes. We will either accept or deny this.
 
-Please remember to add any changes to the docs
+Please remember to add any changes to the docs.
