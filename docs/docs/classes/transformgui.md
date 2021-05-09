@@ -1,4 +1,10 @@
-# TransformGui
+---
+id: transformgui
+title: TransformGui
+sidebar_label: TransformGui
+slug: /transformgui
+---
+
 ## Methods
 ### new
 **Description:**

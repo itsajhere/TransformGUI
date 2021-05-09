@@ -1,3 +1,10 @@
+---
+id: index
+title: Home
+sidebar_label: Home
+slug: /
+---
+
 # Transform GUI
 ### Installation
 Insert [this](https://github.com/itsajhere/transformgui/releases) model into ReplicatedStorage.

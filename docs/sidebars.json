@@ -1,0 +1,12 @@
+{
+	"docs": [
+		"index",
+		{
+			"type": "category",
+			"label": "Classes",
+			"items": [
+				"classes/transformgui"
+			]
+		}
+	]
+}
