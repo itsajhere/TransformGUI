@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://itsajhere.github.io/TransformGUI/blog</id>
+    <title>Transform GUI Blog</title>
+    <updated>2015-10-25T23:29:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://itsajhere.github.io/TransformGUI/blog"/>
+    <subtitle>Transform GUI Blog</subtitle>
+    <icon>https://itsajhere.github.io/TransformGUI/img/favicon.ico</icon>
+</feed>
