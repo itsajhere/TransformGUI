@@ -31,9 +31,14 @@ function TransformGui.new(guiObject: GuiObject, frameProperty: string, isTopBarE
 	self.onDragChanged = self._onDragChangedEvent.Event
 	self.onDragEnded = self._onDragEndedEvent.Event
 	
-	if guiObject:IsA("Frame") then
-		guiObject.Active = false
-		guiObject.Selectable = false
+	guiObject.Active = false
+	guiObject.Selectable = false
+	
+	for _, obj in pairs(guiObject:GetDescendants()) do
+		if obj:IsA("GuiObject") then
+			obj.Active = false
+			obj.Selectable = false
+		end
 	end
 	
 	self:ApplyFrameProperties(frameProperty)
