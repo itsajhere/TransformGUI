@@ -31,16 +31,6 @@ function TransformGui.new(guiObject: GuiObject, frameProperty: string, isTopBarE
 	self.onDragChanged = self._onDragChangedEvent.Event
 	self.onDragEnded = self._onDragEndedEvent.Event
 	
-	guiObject.Active = false
-	guiObject.Selectable = false
-	
-	for _, obj in pairs(guiObject:GetDescendants()) do
-		if obj:IsA("GuiObject") then
-			obj.Active = false
-			obj.Selectable = false
-		end
-	end
-	
 	self:ApplyFrameProperties(frameProperty)
 	
 	return self
@@ -70,8 +60,8 @@ function TransformGui:makeDraggable()
 			self._onDragBeginEvent:Fire()
 		end
 	end)
-	uis.InputChanged:Connect(function(input, r)
-		if r or self.resizing then return end
+	uis.InputChanged:Connect(function(input)
+		if self.resizing then return end
 		if moving and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
 			local mLocation = uis:GetMouseLocation()
 			self.guiObject.Position = UDim2.new(0, mLocation.X, 0, mLocation.Y) + delta
@@ -128,8 +118,7 @@ function TransformGui:makeResizeable()
 			end
 		end
 	end)
-	uis.InputChanged:Connect(function(input, r)
-		if r then return end
+	uis.InputChanged:Connect(function(input)
 		if moving and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
 			local mLocation = uis:GetMouseLocation()
 			if self.isTopBarEnabled then 
