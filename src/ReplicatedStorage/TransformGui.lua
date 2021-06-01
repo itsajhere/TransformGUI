@@ -111,10 +111,10 @@ function TransformGui:makeResizeable()
 			local absPos = self.guiObject.AbsolutePosition -- Top Left
 			local absSize = self.guiObject.AbsoluteSize
 			local endPos = absPos + absSize -- Bottom Right
-			xR = inRange(mLocation.X, absPos.X + absSize.X, 10)
-			xL = not xR and inRange(mLocation.X, absPos.X, 10)
-			yB = inRange(mLocation.Y, absPos.Y + absSize.Y, 10)
-			yT = inRange(mLocation.Y, absPos.Y, 10)
+			xR = inRange(mLocation.X, absPos.X + absSize.X, 10) and inRange(mLocation.Y, absPos.Y + absSize.Y/2, absSize.Y + 10)
+			xL = not xR and inRange(mLocation.X, absPos.X, 10) and inRange(mLocation.Y, absPos.Y + absSize.Y/2, absSize.Y + 10)
+			yB = inRange(mLocation.Y, absPos.Y + absSize.Y, 10) and inRange(mLocation.X, absPos.X + absSize.X/2, absSize.X + 10)
+			yT = inRange(mLocation.Y, absPos.Y, 10) and inRange(mLocation.X, absPos.X + absSize.X/2, absSize.X + 10)
 			
 			if yB or yT or xR or xL then
 				Mouse.Icon = (xR or xL) and not (yB or yT) and textures.X or
